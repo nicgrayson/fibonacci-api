@@ -8,4 +8,8 @@ describe "Fibonacci API" do
   it "returns first 5 fibonacci number when 5 is provided" do
     expect(get('/5').body).to eql "[0, 1, 1, 2, 3]"
   end
+
+  it "returns a error if the value is not a natural number" do
+    expect(get('/-5').status).to eql 400
+  end
 end
