@@ -2,10 +2,10 @@ require_relative 'spec_helper.rb'
 
 describe "Fibonacci API" do
   it "shows usage on /" do
-    expect(get '/').to be_ok
+    expect(get('/').body).to eql "To use this fibonacci number generator please hit /seed_number"
   end
 
-  it "echos the number" do
-    expect(get('/1234').body).to eql "Number provided is: 1234"
+  it "returns first 5 fibonacci number when 5 is provided" do
+    expect(get('/5').body).to eql "[0, 1, 1, 2, 3]"
   end
 end
